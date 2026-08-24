@@ -1,21 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #fafaf8;
-  --bg-elevated: #ffffff;
-  --ink: #0a0a0a;
-  --ink-muted: #5b5b58;
-  --ink-faint: #8a8a86;
-  --border: #e7e4dd;
-  --border-strong: #d8d4ca;
-  --accent: #ff5a1f;
-  --accent-ink: #0a0a0a;
-  --accent-soft: #fff1ea;
+  --bg: #0a0a0a;
+  --bg-elevated: #111111;
+  --bg-lavender: #0d0d0e;
+  --ink: #f5f3ee;
+  --ink-muted: #8e8a94;
+  --ink-faint: #625d68;
+  --border: #242424;
+  --border-strong: #333333;
+  --accent: #8b5cf6;
+  --accent-soft: #a78bfa;
+  --accent-tint: rgba(139, 92, 246, 0.08);
 }
 
 @theme inline {
   --color-bg: var(--bg);
   --color-bg-elevated: var(--bg-elevated);
+  --color-bg-lavender: var(--bg-lavender);
   --color-ink: var(--ink);
   --color-ink-muted: var(--ink-muted);
   --color-ink-faint: var(--ink-faint);
@@ -23,8 +25,8 @@
   --color-border-strong: var(--border-strong);
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-accent-tint: var(--accent-tint);
+  --font-sans: var(--font-jakarta);
 }
 
 * {
@@ -33,6 +35,7 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {
@@ -71,6 +74,14 @@ body {
 
 .hairline {
   border-color: var(--border);
+}
+
+.violet-glow {
+  box-shadow: 0 0 0 1px var(--border), 0 24px 60px -24px rgba(139, 92, 246, 0.28);
+}
+
+.card-shadow {
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.02) inset, 0 16px 32px -20px rgba(0, 0, 0, 0.6);
 }
 
 @media (prefers-reduced-motion: reduce) {

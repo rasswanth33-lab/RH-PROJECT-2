@@ -4,7 +4,7 @@ import { whySeeableLabs } from "@/data/technologies";
 
 export function WhySeeableLabs() {
   return (
-    <section className="border-t border-border py-24 md:py-32">
+    <section className="border-t border-border bg-bg-lavender py-24 md:py-32">
       <div className="container-lab">
         <Reveal>
           <SectionLabel>Why Seeable Labs</SectionLabel>
@@ -15,7 +15,7 @@ export function WhySeeableLabs() {
           </h2>
         </Reveal>
 
-        <RevealGroup className="mt-16 grid gap-px overflow-hidden rounded-3xl border border-border bg-border sm:grid-cols-2" stagger={0.08}>
+        <RevealGroup className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2" stagger={0.08}>
           {whySeeableLabs.map((item, i) => (
             <RevealItem key={item.title}>
               <div className="h-full bg-bg-elevated p-8 md:p-10">

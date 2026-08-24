@@ -1,10 +1,15 @@
 import { Reveal } from "@/components/ui/Reveal";
 import { MagneticButton } from "@/components/ui/MagneticButton";
+import { NodeField } from "@/components/ui/NodeField";
 
 export function FinalCTA() {
   return (
-    <section className="border-t border-border py-28 md:py-36">
-      <div className="container-lab text-center">
+    <section className="relative overflow-hidden border-t border-border py-28 md:py-36">
+      <NodeField
+        variant="dark"
+        className="pointer-events-none absolute left-1/2 top-0 h-32 w-[720px] -translate-x-1/2 opacity-30"
+      />
+      <div className="container-lab relative text-center">
         <Reveal>
           <h2 className="text-balance mx-auto max-w-3xl text-4xl font-semibold tracking-tight md:text-6xl">
             Have something worth building?

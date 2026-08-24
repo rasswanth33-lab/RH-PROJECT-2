@@ -38,8 +38,8 @@ export function MagneticButton({ href, children, variant = "primary", className 
       className={cn(
         "group inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-medium tracking-tight transition-[transform,background-color,color,border-color] duration-300 ease-out will-change-transform",
         variant === "primary"
-          ? "bg-ink text-bg hover:bg-accent hover:text-white"
-          : "border border-border-strong text-ink hover:border-ink",
+          ? "bg-accent text-white hover:bg-accent-soft"
+          : "border border-border-strong text-ink hover:border-accent hover:text-accent",
         className
       )}
     >

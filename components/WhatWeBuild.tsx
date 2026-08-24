@@ -12,7 +12,7 @@ export function WhatWeBuild() {
   const activeService = services.find((s) => s.id === active) ?? services[0];
 
   return (
-    <section className="border-t border-border py-24 md:py-32">
+    <section className="border-t border-border bg-bg-lavender py-24 md:py-32">
       <div className="container-lab">
         <Reveal>
           <SectionLabel>What We Build</SectionLabel>
@@ -30,8 +30,8 @@ export function WhatWeBuild() {
                 className={cn(
                   "shrink-0 rounded-xl border px-5 py-4 text-left text-sm font-medium transition-colors duration-300 lg:shrink",
                   active === service.id
-                    ? "border-ink bg-ink text-bg"
-                    : "border-border text-ink-muted hover:border-border-strong hover:text-ink"
+                    ? "border-accent bg-accent text-white"
+                    : "border-border bg-bg-elevated text-ink-muted hover:border-accent hover:text-ink"
                 )}
               >
                 {service.title}
@@ -44,7 +44,7 @@ export function WhatWeBuild() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="rounded-3xl border border-border bg-bg-elevated p-8 md:p-12"
+            className="card-shadow rounded-2xl border border-border bg-bg-elevated p-8 md:p-12"
           >
             <p className="text-2xl font-medium tracking-tight md:text-3xl">{activeService.title}</p>
             <p className="mt-4 max-w-lg text-ink-muted">{activeService.summary}</p>

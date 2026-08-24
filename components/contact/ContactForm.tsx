@@ -19,7 +19,7 @@ const emptyForm: ContactPayload = {
 };
 
 const inputClasses =
-  "w-full rounded-xl border border-border bg-bg-elevated px-4 py-3 text-sm text-ink placeholder:text-ink-faint outline-none transition-colors duration-200 focus:border-ink";
+  "w-full rounded-xl border border-border bg-bg-elevated px-4 py-3 text-sm text-ink placeholder:text-ink-faint outline-none transition-colors duration-200 focus:border-accent";
 
 export function ContactForm() {
   const [form, setForm] = useState<ContactPayload>(emptyForm);
@@ -56,7 +56,7 @@ export function ContactForm() {
       <motion.div
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
-        className="rounded-3xl border border-border bg-bg-elevated p-10 text-center md:p-16"
+        className="rounded-2xl border border-border bg-bg-elevated p-10 text-center md:p-16"
       >
         <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-accent text-2xl text-white">
           ✓
@@ -133,8 +133,8 @@ export function ContactForm() {
               className={cn(
                 "rounded-full border px-4 py-2 text-sm font-medium transition-colors duration-200",
                 form.projectType === type
-                  ? "border-ink bg-ink text-bg"
-                  : "border-border text-ink-muted hover:border-border-strong"
+                  ? "border-accent bg-accent text-white"
+                  : "border-border text-ink-muted hover:border-accent hover:text-ink"
               )}
             >
               {type}
@@ -187,7 +187,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3.5 text-sm font-medium text-bg transition-colors duration-300 hover:bg-accent disabled:opacity-60"
+        className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-medium text-white transition-colors duration-300 hover:bg-accent-soft disabled:opacity-60"
       >
         {status === "submitting" ? "Sending…" : "Send Project Enquiry"}
       </button>

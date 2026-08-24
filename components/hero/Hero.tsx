@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { MagneticButton } from "@/components/ui/MagneticButton";
+import { NodeField } from "@/components/ui/NodeField";
 import { heroFlow } from "@/data/technologies";
 
 export function Hero() {
@@ -9,7 +10,7 @@ export function Hero() {
     <section className="relative overflow-hidden pt-20 pb-24 md:pt-28 md:pb-32">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10"
+        className="pointer-events-none absolute inset-0 -z-20"
         style={{
           backgroundImage:
             "linear-gradient(to right, var(--border) 1px, transparent 1px), linear-gradient(to bottom, var(--border) 1px, transparent 1px)",
@@ -18,6 +19,15 @@ export function Hero() {
           WebkitMaskImage: "radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%)",
         }}
       />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-20"
+        style={{
+          background:
+            "radial-gradient(ellipse 60% 50% at 82% 8%, var(--accent-tint) 0%, transparent 65%)",
+        }}
+      />
+      <NodeField className="pointer-events-none absolute -right-10 top-8 -z-10 h-40 w-[560px] opacity-70 md:h-52 md:w-[720px]" />
 
       <div className="container-lab">
         <motion.div

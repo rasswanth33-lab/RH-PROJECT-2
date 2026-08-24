@@ -35,7 +35,7 @@ export default function ServicesPage() {
           <RevealGroup className="grid gap-6 md:grid-cols-2" stagger={0.08}>
             {services.map((service) => (
               <RevealItem key={service.id}>
-                <div className="h-full rounded-3xl border border-border bg-bg-elevated p-8 transition-colors duration-300 hover:border-ink md:p-10">
+                <div className="card-shadow h-full rounded-2xl border border-border bg-bg-elevated p-8 transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-[0_0_0_1px_var(--accent),0_24px_48px_-28px_rgba(139,92,246,0.35)] md:p-10">
                   <h2 className="text-2xl font-semibold tracking-tight">{service.title}</h2>
                   <p className="mt-3 text-ink-muted">{service.summary}</p>
                   <div className="mt-6 flex flex-wrap gap-2">

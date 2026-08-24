@@ -23,7 +23,7 @@ export function ProblemSection() {
           <RevealGroup className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {problems.map((problem) => (
               <RevealItem key={problem}>
-                <div className="h-full rounded-2xl border border-border bg-bg-elevated p-6 transition-colors duration-300 hover:border-ink">
+                <div className="card-shadow h-full rounded-2xl border border-border bg-bg-elevated p-6 transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-[0_0_0_1px_var(--accent),0_20px_40px_-24px_rgba(139,92,246,0.35)]">
                   <p className="text-sm font-medium text-ink">{problem}</p>
                 </div>
               </RevealItem>

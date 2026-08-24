@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const nav = [
   { href: "/work", label: "Work" },
@@ -20,14 +21,17 @@ const legal = [
 
 export function Footer() {
   return (
-    <footer className="mt-auto border-t border-border bg-bg">
+    <footer className="mt-auto bg-bg">
       <div className="container-lab grid gap-12 py-16 md:grid-cols-4 md:gap-8">
         <div className="md:col-span-2">
-          <p className="text-sm font-semibold tracking-[0.14em]">SEEABLE LABS</p>
+          <div className="flex items-center gap-2.5">
+            <Image src="/brand/mark.png" alt="" width={32} height={32} className="rounded-md" />
+            <span className="text-sm font-semibold tracking-[0.14em] text-ink">SEEABLE LABS</span>
+          </div>
           <p className="mt-3 max-w-xs text-sm text-ink-muted">From idea to software.</p>
           <Link
             href="/contact"
-            className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-ink underline decoration-accent decoration-2 underline-offset-4"
+            className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-accent-soft transition-colors duration-200 hover:text-accent"
           >
             Talk to Seeable Labs →
           </Link>
@@ -38,13 +42,19 @@ export function Footer() {
           <ul className="mt-4 space-y-2.5">
             {nav.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="text-sm text-ink-muted hover:text-ink">
+                <Link
+                  href={item.href}
+                  className="text-sm text-ink-muted transition-colors duration-200 hover:text-accent-soft"
+                >
                   {item.label}
                 </Link>
               </li>
             ))}
             <li>
-              <Link href="/contact" className="text-sm text-ink-muted hover:text-ink">
+              <Link
+                href="/contact"
+                className="text-sm text-ink-muted transition-colors duration-200 hover:text-accent-soft"
+              >
                 Contact
               </Link>
             </li>
@@ -60,7 +70,7 @@ export function Footer() {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-ink-muted hover:text-ink"
+                  className="text-sm text-ink-muted transition-colors duration-200 hover:text-accent-soft"
                 >
                   {item.label}
                 </a>
@@ -74,7 +84,7 @@ export function Footer() {
         <p>© 2026 Seeable Labs. All rights reserved.</p>
         <div className="flex gap-5">
           {legal.map((item) => (
-            <Link key={item.href} href={item.href} className="hover:text-ink">
+            <Link key={item.href} href={item.href} className="transition-colors duration-200 hover:text-accent-soft">
               {item.label}
             </Link>
           ))}
