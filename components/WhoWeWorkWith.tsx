@@ -1,0 +1,29 @@
+import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
+import { SectionLabel } from "@/components/ui/SectionLabel";
+import { whoWeWorkWith } from "@/data/technologies";
+
+export function WhoWeWorkWith() {
+  return (
+    <section className="border-t border-border py-24 md:py-32">
+      <div className="container-lab">
+        <Reveal>
+          <SectionLabel>Who We Work With</SectionLabel>
+          <h2 className="text-balance mt-6 max-w-2xl text-4xl font-semibold tracking-tight md:text-5xl">
+            From first idea to enterprise scale.
+          </h2>
+        </Reveal>
+
+        <RevealGroup className="mt-14 grid gap-3 sm:grid-cols-2 lg:grid-cols-4" stagger={0.08}>
+          {whoWeWorkWith.map((item) => (
+            <RevealItem key={item.title}>
+              <div className="h-full rounded-2xl border border-border p-7 transition-colors duration-300 hover:border-ink">
+                <h3 className="text-lg font-semibold tracking-tight">{item.title}</h3>
+                <p className="mt-2 text-sm text-ink-muted">{item.description}</p>
+              </div>
+            </RevealItem>
+          ))}
+        </RevealGroup>
+      </div>
+    </section>
+  );
+}
