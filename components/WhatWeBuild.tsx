@@ -15,7 +15,7 @@ export function WhatWeBuild() {
     <section className="border-t border-border bg-bg-lavender py-24 md:py-32">
       <div className="container-lab">
         <Reveal>
-          <SectionLabel>What We Build</SectionLabel>
+          <SectionLabel>Capabilities</SectionLabel>
           <h2 className="text-balance mt-6 max-w-2xl text-4xl font-semibold tracking-tight md:text-5xl">
             Websites, software, and AI — engineered as one system.
           </h2>

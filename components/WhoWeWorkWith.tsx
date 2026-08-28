@@ -7,10 +7,15 @@ export function WhoWeWorkWith() {
     <section className="border-t border-border py-24 md:py-32">
       <div className="container-lab">
         <Reveal>
-          <SectionLabel>Who We Work With</SectionLabel>
+          <SectionLabel>About Seeable Labs</SectionLabel>
           <h2 className="text-balance mt-6 max-w-2xl text-4xl font-semibold tracking-tight md:text-5xl">
             From first idea to enterprise scale.
           </h2>
+          <p className="mt-6 max-w-xl text-ink-muted">
+            Seeable Labs is a digital product and technology company — not a traditional
+            web-design agency. We understand the business first, then build the software,
+            websites, and AI systems behind it.
+          </p>
         </Reveal>
 
         <RevealGroup className="mt-14 grid gap-3 sm:grid-cols-2 lg:grid-cols-4" stagger={0.08}>

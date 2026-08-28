@@ -6,9 +6,10 @@ import { cn } from "@/lib/utils";
 interface NodeFieldProps {
   className?: string;
   variant?: "light" | "dark";
+  shape?: "strip" | "field";
 }
 
-const nodes = [
+const stripNodes = [
   { x: 60, y: 90 },
   { x: 220, y: 40 },
   { x: 380, y: 120 },
@@ -17,7 +18,7 @@ const nodes = [
   { x: 760, y: 60 },
 ];
 
-const edges: [number, number][] = [
+const stripEdges: [number, number][] = [
   [0, 1],
   [1, 2],
   [2, 3],
@@ -26,14 +27,48 @@ const edges: [number, number][] = [
   [1, 3],
 ];
 
-export function NodeField({ className, variant = "light" }: NodeFieldProps) {
+const fieldNodes = [
+  { x: 80, y: 60 },
+  { x: 240, y: 140 },
+  { x: 420, y: 70 },
+  { x: 560, y: 190 },
+  { x: 180, y: 280 },
+  { x: 380, y: 320 },
+  { x: 540, y: 400 },
+  { x: 90, y: 440 },
+  { x: 300, y: 500 },
+  { x: 500, y: 560 },
+  { x: 150, y: 600 },
+  { x: 440, y: 660 },
+];
+
+const fieldEdges: [number, number][] = [
+  [0, 1],
+  [1, 2],
+  [2, 3],
+  [1, 4],
+  [4, 5],
+  [5, 6],
+  [4, 7],
+  [7, 8],
+  [5, 8],
+  [8, 9],
+  [7, 10],
+  [8, 11],
+  [9, 11],
+];
+
+export function NodeField({ className, variant = "light", shape = "strip" }: NodeFieldProps) {
   const stroke = variant === "dark" ? "rgba(167, 139, 250, 0.5)" : "rgba(139, 92, 246, 0.35)";
   const dot = variant === "dark" ? "#a78bfa" : "#8b5cf6";
+  const nodes = shape === "field" ? fieldNodes : stripNodes;
+  const edges = shape === "field" ? fieldEdges : stripEdges;
+  const viewBox = shape === "field" ? "0 0 640 700" : "0 0 800 180";
 
   return (
     <svg
       aria-hidden
-      viewBox="0 0 800 180"
+      viewBox={viewBox}
       className={cn("pointer-events-none select-none", className)}
       preserveAspectRatio="xMidYMid slice"
     >
@@ -57,7 +92,7 @@ export function NodeField({ className, variant = "light" }: NodeFieldProps) {
           key={i}
           cx={node.x}
           cy={node.y}
-          r={3.5}
+          r={shape === "field" ? 4.5 : 3.5}
           fill={dot}
           initial={{ opacity: 0.4 }}
           animate={{ opacity: [0.4, 1, 0.4], scale: [1, 1.3, 1] }}
