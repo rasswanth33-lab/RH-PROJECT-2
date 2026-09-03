@@ -14,19 +14,6 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    name: "Seeable Hoarding",
-    slug: "seeable-hoarding",
-    description:
-      "A digital platform designed to simplify billboard discovery, availability, and advertising management.",
-    category: "Marketplace / Advertising Technology",
-    technologies: ["Next.js", "TypeScript", "Node.js", "PostgreSQL"],
-    problem:
-      "Outdoor advertising space was booked through fragmented, manual, offline processes with no central way to check availability or manage bookings.",
-    solution:
-      "A unified marketplace where hoarding inventory, availability, and bookings are managed digitally, giving advertisers and vendors a shared source of truth.",
-    featured: true,
-  },
-  {
     name: "Fleet Management & Co",
     slug: "fleet-management-real-estate-1",
     description: "A refined digital experience for a premier real estate brand and its portfolio of properties.",

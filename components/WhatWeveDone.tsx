@@ -1,15 +1,23 @@
+"use client";
+
 import Link from "next/link";
-import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import { Reveal } from "@/components/ui/Reveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { ProjectVisual } from "@/components/projects/ProjectVisual";
 import { projects } from "@/data/projects";
-import { cn } from "@/lib/utils";
 
 export function WhatWeveDone() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end end"] });
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-48%"]);
+
   return (
-    <section id="work" className="border-t border-border py-28 md:py-40">
-      <div className="container-lab">
+    <section ref={sectionRef} id="work" className="border-t border-border md:min-h-[280vh]">
+      <div className="sticky top-0 overflow-x-auto py-28 md:overflow-hidden md:flex md:h-screen md:flex-col md:justify-center md:py-0">
+        <div className="container-lab">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <Reveal>
             <SectionLabel>Selected Work</SectionLabel>
@@ -21,16 +29,16 @@ export function WhatWeveDone() {
           </Reveal>
         </div>
 
-        <RevealGroup className="mt-16 flex flex-col gap-24 md:gap-32" stagger={0.1}>
-          {projects.map((project, i) => (
-            <RevealItem key={project.slug}>
-              <Link href={project.demoUrl ?? `/work/${project.slug}`} className="group block">
-                <div
-                  className={cn(
-                    "grid gap-8 md:grid-cols-2 md:items-center md:gap-14",
-                    i % 2 === 1 && "md:[&>*:first-child]:order-2"
-                  )}
-                >
+        <motion.div style={{ x }} className="mt-16 flex w-max gap-6 md:gap-8">
+          {projects.map((project) => (
+            <Link key={project.slug} href={project.demoUrl ?? `/work/${project.slug}`} className="group block w-[82vw] max-w-[620px] shrink-0 md:w-[42vw]">
+              <div className="grid gap-6 md:gap-8">
+                <ProjectVisual
+                  thumbnail={project.thumbnail}
+                  alt={`${project.name} preview`}
+                  className="aspect-[3/2] transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                />
+
                   <div>
                     <p className="text-xs font-medium uppercase tracking-[0.2em] text-ink-faint">
                       {project.category}
@@ -57,16 +65,11 @@ export function WhatWeveDone() {
                     </span>
                   </div>
 
-                  <ProjectVisual
-                    thumbnail={project.thumbnail}
-                    alt={`${project.name} preview`}
-                    className="aspect-[4/3] transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  />
-                </div>
-              </Link>
-            </RevealItem>
+              </div>
+            </Link>
           ))}
-        </RevealGroup>
+        </motion.div>
+        </div>
       </div>
     </section>
   );

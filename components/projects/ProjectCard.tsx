@@ -8,7 +8,7 @@ export function ProjectCard({ project }: { project: Project }) {
       href={project.demoUrl ?? `/work/${project.slug}`}
       className="card-shadow group relative block overflow-hidden rounded-2xl border border-border bg-bg-elevated p-8 transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-[0_0_0_1px_var(--accent),0_24px_48px_-28px_rgba(139,92,246,0.35)] md:p-12"
     >
-      <ProjectVisual thumbnail={project.thumbnail} alt={`${project.name} preview`} className="mb-8 aspect-[16/9]" />
+      <ProjectVisual thumbnail={project.thumbnail} alt={`${project.name} preview`} className="mb-8 aspect-[3/2]" />
 
       <div className="flex items-start justify-between gap-6">
         <div>
