@@ -24,7 +24,7 @@ export function WhatWeveDone() {
         <RevealGroup className="mt-16 flex flex-col gap-24 md:gap-32" stagger={0.1}>
           {projects.map((project, i) => (
             <RevealItem key={project.slug}>
-              <Link href={`/work/${project.slug}`} className="group block">
+              <Link href={project.demoUrl ?? `/work/${project.slug}`} className="group block">
                 <div
                   className={cn(
                     "grid gap-8 md:grid-cols-2 md:items-center md:gap-14",
@@ -57,7 +57,11 @@ export function WhatWeveDone() {
                     </span>
                   </div>
 
-                  <ProjectVisual className="aspect-[4/3] transition-transform duration-500 ease-out group-hover:scale-[1.02]" />
+                  <ProjectVisual
+                    thumbnail={project.thumbnail}
+                    alt={`${project.name} preview`}
+                    className="aspect-[4/3] transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                  />
                 </div>
               </Link>
             </RevealItem>

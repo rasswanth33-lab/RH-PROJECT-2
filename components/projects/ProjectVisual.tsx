@@ -1,13 +1,22 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { NodeField } from "@/components/ui/NodeField";
 
 /**
  * Abstract, generative stand-in for a product interface — geometric panels and
  * connective lines rendered in code, not a screenshot of the real product.
  */
-export function ProjectVisual({ className }: { className?: string }) {
+export function ProjectVisual({ className, thumbnail, alt }: { className?: string; thumbnail?: string; alt?: string }) {
+  if (thumbnail) {
+    return (
+      <div className={`relative overflow-hidden rounded-2xl border border-border bg-bg-elevated ${className ?? ""}`}>
+        <Image src={thumbnail} alt={alt ?? "Project preview"} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
+      </div>
+    );
+  }
+
   return (
     <div className={`relative overflow-hidden rounded-2xl border border-border bg-bg-elevated ${className ?? ""}`}>
       <div
